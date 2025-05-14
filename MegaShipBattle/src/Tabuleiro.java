@@ -35,16 +35,41 @@ public class Tabuleiro {
         this.matriz = matriz;
     }
 
-    public void preencheTabuleiro () {
-        for(Integer x = 0; x < this.tamanho; x++){
-            for (Integer y = 0; y < this.tamanho; y++) {
-                matriz[x][y] = 0;
-                System.out.println(matriz[x][y]);
+    public void preencheTabuleiro() {
+        System.out.print("   ");
+        for (Integer x = 0; x < this.tamanho; x++) {
+
+            System.out.print(" " + x + " ");
+        }
+        for (Integer y = 0; y < this.tamanho; y++) {
+            System.out.println("");
+            System.out.print(" " + y + " ");
+            for (Integer x = 0; x < this.tamanho; x++) {
+                matriz[x][y] = 9;
+                System.out.print(" " + matriz[x][y] + " ");
             }
         }
     }
 
-    public void imprimeTabuleiro () {
+    public void imprimeTabuleiro() {
+        System.out.print("   ");
+        for (int x = 0; x < this.tamanho; x++) {
+            System.out.print(" " + x + " ");
+        }
 
+        int y = 0;
+        for (Integer[] linha : this.matriz) {
+            System.out.println();
+            System.out.print(" " + y + " ");
+
+            int x = 0;
+            for (Integer valor : linha) {
+                this.matriz[y][x] = 9; // atribui valor usando índices
+                System.out.print(" " + this.matriz[y][x] + " ");
+                x++;
+            }
+            y++;
+        }
     }
+
 }
