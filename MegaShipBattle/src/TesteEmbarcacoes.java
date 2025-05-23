@@ -3,9 +3,22 @@ public class TesteEmbarcacoes {
         Tabuleiro tabuleiro = new Tabuleiro("padrao", 10);
         tabuleiro.preencheTabuleiro();
         tabuleiro.imprimeTabuleiro();
-        Embarcacao torpedeiro = new Embarcacao("dallas", "T", 2);
-        Embarcacao submarino = new Embarcacao("Teste","S", 1);
-        torpedeiro.posicionaEmbarcacao(tabuleiro);
+        PortaAvioes portaAvioes = new PortaAvioes();
+        Encouracado encouracado = new Encouracado();
+        Cruzador cruzador = new Cruzador();
+        Submarino submarino = new Submarino();
+        Destroyer destroyer = new Destroyer();
+
+        portaAvioes.posicionaEmbarcacao(tabuleiro);
         tabuleiro.imprimeTabuleiro();
+        encouracado.posicionaEmbarcacao(tabuleiro);
+        tabuleiro.imprimeTabuleiro();
+        cruzador.posicionaEmbarcacao(tabuleiro);
+        tabuleiro.imprimeTabuleiro();
+        submarino.posicionaEmbarcacao(tabuleiro);
+        tabuleiro.imprimeTabuleiro();
+        destroyer.posicionaEmbarcacao(tabuleiro);
+        tabuleiro.imprimeTabuleiro();
+
     }
 }

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Embarcacao {
+public abstract class Embarcacao {
 //=====================================================================================================================
 //ATTRIBUTES
 //=====================================================================================================================
@@ -20,9 +20,8 @@ public class Embarcacao {
 //METHODS
 //=====================================================================================================================
     public void posicionaEmbarcacao(Tabuleiro tabuleiro) {
-        tabuleiro.preencheTabuleiro();
-        tabuleiro.imprimeTabuleiro();
-        System.out.println("\n\n1 = Horizontal | 2 = Vertical\nEscolha a orientacao da embarcacao: ");
+        System.out.println("\n\n1 = Horizontal | 2 = Vertical\nEscolha a orientacao do " + nome +
+                " (Tamanho " + slots + "):");
         Scanner scanner = new Scanner(System.in);
         orientacao = scanner.nextInt();
         System.out.println("Posicao X da embarcacao: ");
