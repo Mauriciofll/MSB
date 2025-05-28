@@ -20,22 +20,59 @@ public abstract class Embarcacao {
 //METHODS
 //=====================================================================================================================
     public void posicionaEmbarcacao(Tabuleiro tabuleiro) {
-        System.out.println("\n\n1 = Horizontal | 2 = Vertical\nEscolha a orientacao do " + nome +
-                " (Tamanho " + slots + "):");
-        Scanner scanner = new Scanner(System.in);
-        orientacao = scanner.nextInt();
-        System.out.println("Posicao X da embarcacao: ");
-        int posicaoX = scanner.nextInt();
-        System.out.println("Posicao Y da embarcacao: ");
-        int posicaoY = scanner.nextInt();
-        if(orientacao == 1) {
-            for (int i = 0; i < slots; i++) {
-                tabuleiro.setMatriz(posicaoX + i, posicaoY, categoria);
+        do {
+            Scanner scanner = new Scanner(System.in);
+            try {
+                System.out.println("\n\n1 = Horizontal | 2 = Vertical\nEscolha a orientacao do " + nome +
+                        " (Tamanho " + slots + "):");
+                orientacao = scanner.nextInt();
+                if(orientacao != 1 && orientacao!= 2) {
+                    System.out.print("Valor inválido! Por favor insira um valor válido!");
+                    continue;
+                }
+            } catch(Exception e) {
+                System.out.print("Valor inválido! Por favor insira um valor válido!");
+                continue;
             }
-        } else if (orientacao == 2) {
-            for(int i = 0; i < slots; i++) {
-                tabuleiro.setMatriz(posicaoX, posicaoY + i, categoria);
+            int posicaoX;
+            try {
+                System.out.println("Posicao X da embarcacao: ");
+                posicaoX = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.print("Valor inválido! Por favor insira um valor válido!");
+                continue;
             }
-        }
+            int posicaoY;
+            try {
+                System.out.println("Posicao Y da embarcacao: ");
+                posicaoY = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Valor inválido! Por favor insira um valor válido!");
+                continue;
+            }
+            boolean validacao = true;
+            if (orientacao == 1) {
+                for (int i = 0; i < slots; i++) {
+                    if(tabuleiro.getMatriz(posicaoX + i, posicaoY) != "~") {
+                        System.out.println("Espaço ocupado! Por favor selecione um espaço livre!");
+                        validacao = false;
+                        break;
+                    }
+                    tabuleiro.setMatriz(posicaoX + i, posicaoY, categoria);
+                }
+            } else if (orientacao == 2) {
+                for (int i = 0; i < slots; i++) {
+                    if(tabuleiro.getMatriz(posicaoX, posicaoY + i) != "~") {
+                        System.out.println("Espaço ocupado! Por favor selecione um espaço livre!");
+                        validacao = false;
+                        break;
+                    }
+                    tabuleiro.setMatriz(posicaoX, posicaoY + i, categoria);
+                }
+            }
+            if(validacao) {
+                break;
+            }
+        } while (true);
     }
 }

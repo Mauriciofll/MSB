@@ -25,8 +25,8 @@ public class Tabuleiro {
         this.tamanho = tamanho;
     }
 
-    public String[][] getMatriz() {
-        return matriz;
+    public String getMatriz(int x, int y) {
+        return matriz[x][y];
     }
 
     public void setMatriz(int x, int y, String valor) {

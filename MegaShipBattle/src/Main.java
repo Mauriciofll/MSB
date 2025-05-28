@@ -1,4 +1,4 @@
-public class TesteEmbarcacoes {
+public class Main {
     public static void main(String[] args) {
         Tabuleiro tabuleiro = new Tabuleiro("padrao", 10);
         tabuleiro.preencheTabuleiro();
