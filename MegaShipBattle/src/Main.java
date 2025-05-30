@@ -1,24 +1,37 @@
 public class Main {
     public static void main(String[] args) {
-        Tabuleiro tabuleiro = new Tabuleiro("padrao", 10);
-        tabuleiro.preencheTabuleiro();
-        tabuleiro.imprimeTabuleiro();
+        // Criando o tabuleiro e associando à View e Controller
+        Tabuleiro tabuleiro = new Tabuleiro("Jogador 1", 10);
+        TabuleiroView tabuleiroView = new TabuleiroView();
+        TabuleiroController tabuleiroController = new TabuleiroController(tabuleiro, tabuleiroView);
+
+        // Inicializando e exibindo o tabuleiro
+        tabuleiroController.inicializarTabuleiro();
+        tabuleiroController.exibirTabuleiro();
+
+        // Criando uma embarcação (exemplo: Submarino de 3 slots)
+        Submarino submarino = new Submarino();  // Subclasse de Embarcacao
+        Cruzador cruzador = new Cruzador();
+        Destroyer destroyer = new Destroyer();
         PortaAvioes portaAvioes = new PortaAvioes();
         Encouracado encouracado = new Encouracado();
-        Cruzador cruzador = new Cruzador();
-        Submarino submarino = new Submarino();
-        Destroyer destroyer = new Destroyer();
+        EmbarcacaoView embarcacaoView = new EmbarcacaoView();
+        EmbarcacaoController submarinoController = new EmbarcacaoController(submarino, embarcacaoView);
+        EmbarcacaoController cruzadorController = new EmbarcacaoController(cruzador, embarcacaoView);
+        EmbarcacaoController destroyerController = new EmbarcacaoController(destroyer, embarcacaoView);
+        EmbarcacaoController portaAvioesController = new EmbarcacaoController(portaAvioes, embarcacaoView);
+        EmbarcacaoController encouracadoController = new EmbarcacaoController(encouracado, embarcacaoView);
 
-        portaAvioes.posicionaEmbarcacao(tabuleiro);
-        tabuleiro.imprimeTabuleiro();
-        encouracado.posicionaEmbarcacao(tabuleiro);
-        tabuleiro.imprimeTabuleiro();
-        cruzador.posicionaEmbarcacao(tabuleiro);
-        tabuleiro.imprimeTabuleiro();
-        submarino.posicionaEmbarcacao(tabuleiro);
-        tabuleiro.imprimeTabuleiro();
-        destroyer.posicionaEmbarcacao(tabuleiro);
-        tabuleiro.imprimeTabuleiro();
-
+        // Posicionando a embarcação
+        submarinoController.posicionarEmbarcacao(tabuleiro);
+        tabuleiroController.exibirTabuleiro();
+        cruzadorController.posicionarEmbarcacao(tabuleiro);
+        tabuleiroController.exibirTabuleiro();
+        destroyerController.posicionarEmbarcacao(tabuleiro);
+        tabuleiroController.exibirTabuleiro();
+        portaAvioesController.posicionarEmbarcacao(tabuleiro);
+        tabuleiroController.exibirTabuleiro();
+        encouracadoController.posicionarEmbarcacao(tabuleiro);
+        tabuleiroController.exibirTabuleiro();
     }
 }

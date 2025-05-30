@@ -13,4 +13,8 @@ public class Menu {
             }
         } while (opcao != 1 && opcao != 2);
     }
+
+    public void desafioComputador() {
+
+    }
 }

@@ -1,94 +1,54 @@
 public class Tabuleiro {
-//=====================================================================================================================
-//ATTRIBUTES
-//=====================================================================================================================
+    //=================================================================================================================
+    // Atributos
+    //=================================================================================================================
     private String nome;
     private int tamanho;
     private String[][] matriz;
-//=====================================================================================================================
-//GETTERS & SETTERS
-//=====================================================================================================================
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(Integer tamanho) {
-        this.tamanho = tamanho;
-    }
-
-    public String getMatriz(int x, int y) {
-        return matriz[x][y];
-    }
-
-    public void setMatriz(int x, int y, String valor) {
-        matriz[x][y] = valor;
-    }
-
-    //=====================================================================================================================
-//CONSTRUCTORS
-//=====================================================================================================================
+    //=================================================================================================================
+    // Construtor
+    //=================================================================================================================
     public Tabuleiro(String nome, int tamanho) {
         this.nome = nome;
         this.tamanho = tamanho;
-        int colunas = tamanho;
-        int linhas = tamanho;
-        this.matriz = new String[colunas][linhas];
+        this.matriz = new String[tamanho][tamanho];
+        preencheTabuleiro(); // já inicia o tabuleiro preenchido
     }
-//=====================================================================================================================
-//METHODS
-//=====================================================================================================================
-    public void preencheTabuleiro() { // Preenche todo o tabuleiro com o valor 0
-        for (int x = 0; x < this.tamanho; x++) {
-        }
+
+    //=================================================================================================================
+    // Getters e Setters
+    //=================================================================================================================
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public int getTamanho() { return tamanho; }
+    public void setTamanho(int tamanho) { this.tamanho = tamanho; }
+
+    public String getMatriz(int x, int y) { return matriz[x][y]; }
+
+    public void setMatriz(int x, int y, String valor) { matriz[x][y] = valor; }
+
+    public boolean isCelulaLivre(int x, int y) {
+        return dentroDosLimites(x, y) && matriz[x][y].equals("~");
+    }
+
+    public boolean dentroDosLimites(int x, int y) {
+        return x >= 0 && y >= 0 && x < tamanho && y < tamanho;
+    }
+
+    //=================================================================================================================
+    // Métodos
+    //=================================================================================================================
+    public void preencheTabuleiro() {
         for (int y = 0; y < this.tamanho; y++) {
             for (int x = 0; x < this.tamanho; x++) {
                 matriz[x][y] = "~";
             }
         }
     }
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    public void imprimeTabuleiro() { // Imprime todo o tabuleiro
-        System.out.print("\t");
-        for (int x = 0; x < this.tamanho; x++) {
-            System.out.print("[" + x + "]\t");
-        }
-        for (int y = 0; y < this.tamanho; y++) {
-            System.out.println("");
-            System.out.print("[" + y + "]\t");
-            for (int x = 0; x < this.tamanho; x++) {
-                System.out.print(" " + matriz[x][y] + " \t");
-            }
-        }
+
+    public String[][] getMatrizCompleta() {
+        return matriz;
     }
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//    public void imprimeTabuleiro() {
-//        System.out.print("\t");
-//        for (int x = 0; x < this.tamanho; x++) {
-//            System.out.print("[" + x + "]\t");
-//        }
-//        int y = 0;
-//        for (Integer[] linha : this.matriz) {
-//            System.out.println();
-//            System.out.print("[" + y + "]\t");
-//            int x = 0;
-//            for (Integer valor : linha) {
-//                this.matriz[y][x] = 0; // atribui valor usando índices
-//                System.out.print("|" + this.matriz[y][x] + "|\t");
-//                x++;
-//            }
-//            y++;
-//        }
-//    }
-
 }
