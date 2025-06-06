@@ -1,5 +1,8 @@
 public class Main {
     public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.intro();
+
         // Criando o tabuleiro e associando à View e Controller
         Tabuleiro tabuleiro = new Tabuleiro("Jogador 1", 10);
         TabuleiroView tabuleiroView = new TabuleiroView();
