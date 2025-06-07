@@ -1,67 +1,31 @@
 package repository;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Usuario;
-import java.io.*;
-import java.util.*;
-import java.util.logging.*;
 
 public class UsuarioRepository {
-    private static final String ARQUIVO = "usuarios.txt";
-    private static final Logger logger = Logger.getLogger(UsuarioRepository.class.getName());
+    private static final String CAMINHO = "usuarios.txt";
 
-    public UsuarioRepository() {
-        configurarLog();
+    public static List<Usuario> carregarUsuarios() {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(CAMINHO))) {
+            return (List<Usuario>) in.readObject();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
     }
 
-    private void configurarLog() {
-        try {
-            FileHandler fileHandler = new FileHandler("logs/app.log", true);
-            fileHandler.setFormatter(new SimpleFormatter());
-            logger.addHandler(fileHandler);
-            logger.setUseParentHandlers(false);
+    public static void salvarUsuarios(List<Usuario> usuarios) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(CAMINHO))) {
+            out.writeObject(usuarios);
         } catch (IOException e) {
-            System.out.println("Erro ao configurar log: " + e.getMessage());
+            e.printStackTrace();
         }
-    }
-
-    public List<Usuario> listarUsuarios() {
-        List<Usuario> usuarios = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(ARQUIVO))) {
-            String linha;
-            while ((linha = br.readLine()) != null) {
-                usuarios.add(Usuario.fromString(linha));
-            }
-        } catch (IOException e) {
-            logger.warning("Erro ao listar usuários: " + e.getMessage());
-        }
-        return usuarios;
-    }
-
-    public void salvarUsuarios(List<Usuario> usuarios) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
-            for (Usuario u : usuarios) {
-                bw.write(u.toString());
-                bw.newLine();
-            }
-            logger.info("Usuários salvos com sucesso.");
-        } catch (IOException e) {
-            logger.severe("Erro ao salvar usuários: " + e.getMessage());
-        }
-    }
-
-    public Usuario buscarPorNome(String nome) {
-        for (Usuario u : listarUsuarios()) {
-            if (u.getNome().equals(nome)) {
-                return u;
-            }
-        }
-        return null;
-    }
-
-    public void adicionarUsuario(Usuario usuario) {
-        List<Usuario> usuarios = listarUsuarios();
-        usuarios.add(usuario);
-        salvarUsuarios(usuarios);
-        logger.info("Usuário cadastrado: " + usuario.getNome());
     }
 }
