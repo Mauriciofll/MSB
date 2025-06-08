@@ -1,41 +1,23 @@
 package model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private String nome;
     private String senha;
-    private int pontuacao;
+    private boolean admin;
 
-    public Usuario(String nome, String senha) {
+    public Usuario(String nome, String senha, boolean admin) {
         this.nome = nome;
         this.senha = senha;
-        this.pontuacao = 0;
+        this.admin = admin;
     }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public String getSenha() {
-        return senha;
-    }
+    public String getSenha() { return senha; }
+    public void setSenha(String senha) { this.senha = senha; }
 
-    public int getPontuacao() {
-        return pontuacao;
-    }
-
-    public void setPontuacao(int pontuacao) {
-        this.pontuacao = pontuacao;
-    }
-
-    @Override
-    public String toString() {
-        return nome + ";" + senha + ";" + pontuacao;
-    }
-
-    public static Usuario fromString(String linha) {
-        String[] partes = linha.split(";");
-        Usuario u = new Usuario(partes[0], partes[1]);
-        u.setPontuacao(Integer.parseInt(partes[2]));
-        return u;
-    }
+    public boolean isAdmin() { return admin; }
 }
