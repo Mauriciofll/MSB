@@ -1,12 +1,17 @@
-package controller;
+package Teste.controller;
 
 import java.util.List;
 
-import model.Usuario;
-import repository.UsuarioRepository;
+import Teste.model.Usuario;
+import Teste.repository.UsuarioRepository;
 
 public class LoginController {
     private Usuario usuarioLogado;
+    private UsuarioRepository usuarioRepository;
+
+    public LoginController(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     public boolean logar(String nome, String senha) {
         List<Usuario> usuarios = UsuarioRepository.carregarUsuarios();

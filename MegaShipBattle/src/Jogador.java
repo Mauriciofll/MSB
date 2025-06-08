@@ -13,9 +13,9 @@ public class Jogador implements ModeloJogador{
 
     @Override
     public void posicionar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
-        for(Embarcacao e : frota) {
+        for(int i  = 0; i < 5; i++) {
             EmbarcacaoView embarcacaoView = new EmbarcacaoView();
-            EmbarcacaoController embarcacaoController = new EmbarcacaoController(e, embarcacaoView);
+            EmbarcacaoController embarcacaoController = new EmbarcacaoController(frota.get(i), embarcacaoView);
 
             tabuleiroController.exibirTabuleiro();
             embarcacaoController.posicionarEmbarcacao(tabuleiro);
@@ -38,12 +38,15 @@ public class Jogador implements ModeloJogador{
                     System.out.println("Posição inválida!");
                 }
                 if(tabuleiro.getMatriz(posicaoX, posicaoY) != "~") {
-                    System.out.println("Alvo atingido!");
+                    System.out.println("\nAlvo atingido!");
                     tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                    pontos += 1;
+                    break;
                 } else {
-                    System.out.println("Nenhum alvo atingido!");
+                    System.out.println("\nNenhum alvo atingido!");
+                    tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                    break;
                 }
-
             } catch (Exception e) {
                 System.out.println("Opção inválida!");
             }

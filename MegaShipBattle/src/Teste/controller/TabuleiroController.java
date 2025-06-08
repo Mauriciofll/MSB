@@ -1,9 +1,9 @@
-package controller;
+package Teste.controller;
 
 import java.util.List;
 
-import model.Tabuleiro;
-import repository.TabuleiroRepository;
+import Teste.model.Tabuleiro;
+import Teste.repository.TabuleiroRepository;
 
 public class TabuleiroController {
     public void criarTabuleiro(String nome, int x, int y, String dono) {

@@ -1,14 +1,14 @@
-package view;
+package Teste.view;
 
 import java.util.List;
 import java.util.Scanner;
 
-import controller.LoginController;
-import controller.TabuleiroController;
-import model.Tabuleiro;
-import model.Usuario;
-import repository.TabuleiroRepository;
-import repository.UsuarioRepository;
+import Teste.controller.LoginController;
+import Teste.controller.TabuleiroController;
+import Teste.model.Tabuleiro;
+import Teste.model.Usuario;
+import Teste.repository.TabuleiroRepository;
+import Teste.repository.UsuarioRepository;
 
 public class MainConsoleView {
     private static final Scanner scanner = new Scanner(System.in);

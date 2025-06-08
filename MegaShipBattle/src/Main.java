@@ -1,8 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
+        menu.menuEntrada();
         menu.intro();
-
+        /*
         // Criando o tabuleiro e associando à View e Controller
         Tabuleiro tabuleiro = new Tabuleiro("Jogador 1", 10);
         TabuleiroView tabuleiroView = new TabuleiroView();
@@ -36,5 +37,6 @@ public class Main {
         tabuleiroController.exibirTabuleiro();
         encouracadoController.posicionarEmbarcacao(tabuleiro);
         tabuleiroController.exibirTabuleiro();
+         */
     }
 }

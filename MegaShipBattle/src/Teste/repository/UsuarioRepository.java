@@ -1,4 +1,4 @@
-package repository;
+package Teste.repository;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Usuario;
+import Teste.model.Usuario;
 
 public class UsuarioRepository {
     private static final String CAMINHO = "usuarios.txt";

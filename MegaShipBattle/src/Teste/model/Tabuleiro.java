@@ -1,4 +1,4 @@
-package model;
+package Teste.model;
 
 import java.io.Serializable;
 

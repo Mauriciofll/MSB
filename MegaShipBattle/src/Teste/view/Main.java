@@ -1,15 +1,15 @@
-package view;
+package Teste.view;
 
 import java.util.Scanner;
 
-import controller.LoginController;
-import model.Usuario;
+import Teste.controller.LoginController;
+import Teste.model.Usuario;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LoginController ctrl = new LoginController();
-        Usuario logado = null;
+        Usuario logado = new Usuario();
 
         while (logado == null) {
             System.out.println("1 - Cadastrar\n2 - Entrar");
@@ -19,7 +19,7 @@ public class Main {
             System.out.print("Senha: ");
             String senha = sc.nextLine();
             if (op == 1) {
-                if (ctrl.cadastrar(nome, senha)) System.out.println("Cadastrado!");
+                if (ctrl.cadastrar(nome, senha, false)) System.out.println("Cadastrado!");
                 else System.out.println("Esse nome de usuário não está disponível.");
             } else {
                 logado = ctrl.logar(nome, senha);

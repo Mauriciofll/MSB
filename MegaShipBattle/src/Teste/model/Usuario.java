@@ -1,4 +1,4 @@
-package model;
+package Teste.model;
 
 import java.io.Serializable;
 
@@ -11,6 +11,10 @@ public class Usuario implements Serializable {
         this.nome = nome;
         this.senha = senha;
         this.admin = admin;
+    }
+
+    public Usuario() {
+
     }
 
     public String getNome() { return nome; }
