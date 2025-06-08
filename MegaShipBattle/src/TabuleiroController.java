@@ -16,9 +16,22 @@ public class TabuleiroController {
         view.exibirTabuleiro(tabuleiro);
     }
 
+    public void exibirTabuleiroEscondido() { view.exibirTabuleiroEscondido(tabuleiro);
+    }
+
     public boolean atualizarCelula(int x, int y, String valor) {
         if (tabuleiro.dentroDosLimites(x, y) && tabuleiro.isCelulaLivre(x, y)) {
             tabuleiro.setMatriz(x, y, valor);
+            return true;
+        } else {
+            view.exibirMensagem("Posição inválida ou já ocupada!");
+            return false;
+        }
+    }
+
+    public boolean atualizarCelulaEscondida(int x, int y) {
+        if (tabuleiro.dentroDosLimites(x, y) && tabuleiro.isCelulaLivre(x, y)) {
+            tabuleiro.setMatrizEscondida(x, y);
             return true;
         } else {
             view.exibirMensagem("Posição inválida ou já ocupada!");
