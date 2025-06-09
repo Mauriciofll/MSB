@@ -1,9 +1,8 @@
-package Teste.controller;
-
+package controller;
 import java.util.List;
 
-import Teste.model.Tabuleiro;
-import Teste.repository.TabuleiroRepository;
+import model.Tabuleiro;
+import repository.TabuleiroRepository;
 
 public class TabuleiroController {
     public void criarTabuleiro(String nome, int x, int y, String dono) {
@@ -11,4 +10,7 @@ public class TabuleiroController {
         lista.add(new Tabuleiro(nome, x, y, dono));
         TabuleiroRepository.salvarTodos(lista);
     }
+
+
+    
 }

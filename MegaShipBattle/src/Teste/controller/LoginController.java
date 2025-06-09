@@ -1,9 +1,8 @@
-package Teste.controller;
-
+package controller;
 import java.util.List;
 
-import Teste.model.Usuario;
-import Teste.repository.UsuarioRepository;
+import model.Usuario;
+import repository.UsuarioRepository;
 
 public class LoginController {
     private Usuario usuarioLogado;

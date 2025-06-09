@@ -1,18 +1,17 @@
-package Teste.view;
-
+package view;
 import java.util.List;
 import java.util.Scanner;
 
-import Teste.controller.LoginController;
-import Teste.controller.TabuleiroController;
-import Teste.model.Tabuleiro;
-import Teste.model.Usuario;
-import Teste.repository.TabuleiroRepository;
-import Teste.repository.UsuarioRepository;
+import controller.LoginController;
+import controller.TabuleiroController;
+import model.Tabuleiro;
+import model.Usuario;
+import repository.TabuleiroRepository;
+import repository.UsuarioRepository;
 
 public class MainConsoleView {
     private static final Scanner scanner = new Scanner(System.in);
-    private static final LoginController loginController = new LoginController();
+    private static final LoginController loginController = new LoginController(new repository.UsuarioRepository());
     private static final TabuleiroController tabuleiroController = new TabuleiroController();
 
     public static void main(String[] args) {

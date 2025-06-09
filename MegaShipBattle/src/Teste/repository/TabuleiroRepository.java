@@ -1,5 +1,4 @@
-package Teste.repository;
-
+package repository;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import Teste.model.Tabuleiro;
+import model.Tabuleiro;
 
 public class TabuleiroRepository {
     private static final String CAMINHO = "tabuleiros.txt";

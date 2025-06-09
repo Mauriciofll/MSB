@@ -1,5 +1,4 @@
-package Teste.repository;
-
+package repository;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,11 +7,12 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import Teste.model.Usuario;
+import model.Usuario;
 
 public class UsuarioRepository {
     private static final String CAMINHO = "usuarios.txt";
 
+    @SuppressWarnings("unchecked")
     public static List<Usuario> carregarUsuarios() {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(CAMINHO))) {
             return (List<Usuario>) in.readObject();
