@@ -8,7 +8,7 @@ import repository.UsuarioRepository;
 import java.util.List;
 
 public class LoginController {
-    private static final Logger logger = LogManager.getLogger(EmbarcacaoController.class);
+    private static final Logger logger = LogManager.getLogger(LoginController.class);
     private Usuario usuarioLogado;
     private UsuarioRepository usuarioRepository;
 
@@ -21,6 +21,7 @@ public class LoginController {
         List<Usuario> usuarios = UsuarioRepository.carregarUsuarios();
         logger.debug("Realizando comparacao de credenciais");
         for (Usuario u : usuarios) {
+            logger.trace("Realizando comparacao de credenciais");
             if (u.getNome().equals(nome) && u.getSenha().equals(senha)) {
                 usuarioLogado = u;
                 return true;

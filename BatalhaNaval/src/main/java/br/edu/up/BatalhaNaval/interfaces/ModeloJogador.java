@@ -1,5 +1,7 @@
-package br.edu.up.BatalhaNaval.models;
+package br.edu.up.BatalhaNaval.interfaces;
 
+import br.edu.up.BatalhaNaval.models.Embarcacao;
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
 import controller.TabuleiroController;
 import view.TabuleiroView;
 

@@ -1,5 +1,6 @@
 package br.edu.up.BatalhaNaval.models;
 
+import br.edu.up.BatalhaNaval.interfaces.ModeloJogador;
 import controller.EmbarcacaoController;
 import controller.TabuleiroController;
 import view.EmbarcacaoView;
@@ -7,7 +8,7 @@ import view.TabuleiroView;
 
 import java.util.Scanner;
 
-public class Jogador implements ModeloJogador{
+public class Jogador implements ModeloJogador {
     private Integer pontos = 0;
 
     public Jogador() {

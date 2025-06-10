@@ -15,14 +15,15 @@ public class EmbarcacaoController {
     private EmbarcacaoView view;
 
     public EmbarcacaoController(Embarcacao embarcacao, EmbarcacaoView view) {
-        logger.info("Iniciando a execução do método EmbarcacaoController");
+        logger.info("Iniciando a execucaoo do método EmbarcacaoController");
         this.embarcacao = embarcacao;
         this.view = view;
+        logger.info("Finalizado a execucao do metodo EmbarcacaoController");
     }
 
     public void posicionarEmbarcacao(Tabuleiro tabuleiro) {
-        boolean sucesso = false;
         logger.info("Iniciando o posicionamento de embarcacoes");
+        boolean sucesso = false;
         do {
             logger.debug("Solicitacao de entrada de valores");
             int orientacao = view.solicitarOrientacao(embarcacao.getNome(), embarcacao.getSlots());
@@ -34,14 +35,13 @@ public class EmbarcacaoController {
             logger.debug("Atribuicao das entradas de valor");
             int x = view.solicitarCoordenada("X");
             int y = view.solicitarCoordenada("Y");
-
             sucesso = embarcacao.posicionar(tabuleiro, x, y, orientacao);
 
             if (!sucesso) {
                 view.exibirMensagemErro("Espaço ocupado ou posição inválida. Tente novamente.");
             }
         } while (!sucesso);
-        logger.info("Finalizando o posicionamento de embarcacao");
         view.exibirMensagem("Embarcação posicionada com sucesso!");
+        logger.info("Finalizando o posicionamento de embarcacao");
     }
 }
