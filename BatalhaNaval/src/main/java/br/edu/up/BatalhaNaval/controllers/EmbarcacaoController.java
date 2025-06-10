@@ -1,11 +1,11 @@
 package br.edu.up.BatalhaNaval.controllers;
 
+import br.edu.up.BatalhaNaval.models.Embarcacao;
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
+import br.edu.up.BatalhaNaval.views.EmbarcacaoView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import model.Embarcacao;
-import model.Tabuleiro;
-import view.EmbarcacaoView;
 
 import java.io.IOException;
 

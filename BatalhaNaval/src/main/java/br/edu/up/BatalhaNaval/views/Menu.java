@@ -1,9 +1,11 @@
 package br.edu.up.BatalhaNaval.views;
-import controller.LoginController;
-import controller.TabuleiroController;
-import model.Jogador;
-import model.Tabuleiro;
-import repository.UsuarioRepository;
+
+
+import br.edu.up.BatalhaNaval.controllers.LoginController;
+import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
+import br.edu.up.BatalhaNaval.models.Jogador;
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
+import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
 
 import java.util.Scanner;
 

@@ -1,13 +1,14 @@
 package br.edu.up.BatalhaNaval.views;
+import br.edu.up.BatalhaNaval.controllers.LoginController;
+import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
+import br.edu.up.BatalhaNaval.models.Usuario;
+import br.edu.up.BatalhaNaval.repositories.TabuleiroRepository;
+import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
+
 import java.util.List;
 import java.util.Scanner;
 
-import controller.LoginController;
-import controller.TabuleiroController;
-import model.Tabuleiro;
-import model.Usuario;
-import repository.TabuleiroRepository;
-import repository.UsuarioRepository;
 
 public class MainConsoleView {
     private static final Scanner scanner = new Scanner(System.in);

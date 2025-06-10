@@ -1,9 +1,9 @@
 package br.edu.up.BatalhaNaval.controllers;
 
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
+import br.edu.up.BatalhaNaval.repositories.TabuleiroRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import model.Tabuleiro;
-import repository.TabuleiroRepository;
 
 import java.util.List;
 

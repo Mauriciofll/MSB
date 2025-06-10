@@ -1,9 +1,9 @@
 package br.edu.up.BatalhaNaval.controllers;
 
+import br.edu.up.BatalhaNaval.models.Usuario;
+import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import model.Usuario;
-import repository.UsuarioRepository;
 
 import java.util.List;
 
