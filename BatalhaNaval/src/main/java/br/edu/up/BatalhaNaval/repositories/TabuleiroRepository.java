@@ -1,6 +1,8 @@
 package br.edu.up.BatalhaNaval.repositories;
 
-import model.Tabuleiro;
+
+
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
 
 import java.io.*;
 import java.util.ArrayList;

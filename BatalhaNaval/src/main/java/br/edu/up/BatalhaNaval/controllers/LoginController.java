@@ -27,9 +27,10 @@ public class LoginController {
                 return true;
             }
         }
-        return false;
         logger.debug("Validacao de credenciais realizada");
         logger.info("Finalizando metodo de login");
+        return false;
+
     }
 
     public boolean cadastrar(String nome, String senha, boolean admin) {
@@ -40,8 +41,8 @@ public class LoginController {
         }
         usuarios.add(new Usuario(nome, senha, admin));
         UsuarioRepository.salvarUsuarios(usuarios);
-        return true;
         logger.info("Finalizando cadastro de usuario");
+        return true;
     }
 
     public Usuario getUsuarioLogado() {

@@ -1,10 +1,11 @@
 package br.edu.up.BatalhaNaval.models;
 
+import br.edu.up.BatalhaNaval.controllers.EmbarcacaoController;
+import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
 import br.edu.up.BatalhaNaval.interfaces.ModeloJogador;
-import controller.EmbarcacaoController;
-import controller.TabuleiroController;
-import view.EmbarcacaoView;
-import view.TabuleiroView;
+import br.edu.up.BatalhaNaval.views.EmbarcacaoView;
+import br.edu.up.BatalhaNaval.views.TabuleiroView;
+
 
 import java.util.Scanner;
 

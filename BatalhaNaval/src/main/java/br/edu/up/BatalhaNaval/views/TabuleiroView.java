@@ -1,4 +1,7 @@
 package br.edu.up.BatalhaNaval.views;
+
+import br.edu.up.BatalhaNaval.models.Tabuleiro;
+
 public class TabuleiroView {
     public void exibirTabuleiro(Tabuleiro tabuleiro) {
         int tamanho = tabuleiro.getTamanho();

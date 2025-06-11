@@ -87,4 +87,12 @@ public class Tabuleiro {
     }
 
     public String[][] getMatrizEscondida() { return matrizEscondida; }
+
+    public String getDono() {
+        return dono;
+    }
+
+    public void setDono(String dono) {
+        this.dono = dono;
+    }
 }

@@ -1,6 +1,8 @@
 package br.edu.up.BatalhaNaval.repositories;
 
-import model.Usuario;
+
+
+import br.edu.up.BatalhaNaval.models.Usuario;
 
 import java.io.*;
 import java.util.ArrayList;

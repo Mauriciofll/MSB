@@ -1,9 +1,10 @@
 package br.edu.up.BatalhaNaval.interfaces;
 
+import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
 import br.edu.up.BatalhaNaval.models.Embarcacao;
 import br.edu.up.BatalhaNaval.models.Tabuleiro;
-import controller.TabuleiroController;
-import view.TabuleiroView;
+import br.edu.up.BatalhaNaval.views.TabuleiroView;
+
 
 import java.util.ArrayList;
 import java.util.List;
