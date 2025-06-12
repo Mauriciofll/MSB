@@ -15,8 +15,12 @@ public class MenuRegistro {
     private static final LoginController loginController = new LoginController(new UsuarioRepository());
     private static final TabuleiroController tabuleiroController = new TabuleiroController(new Tabuleiro(), new TabuleiroView());
 
+    /**
+     * Método inicial do programa. Pede cadastro ou login do usuário.
+     */
     public static void introRegistro() {
 
+        //Login básico de admin.
         loginController.cadastrar("Admin", "0000", true);
 
         while (true) {
@@ -61,6 +65,9 @@ public class MenuRegistro {
         }
     }
 
+    /**
+     * Menu destinado a usuários já logados no programa.
+     */
     private static void menuUsuario() {
         Usuario logado = loginController.getUsuarioLogado();
         while (logado != null) {
@@ -83,11 +90,9 @@ public class MenuRegistro {
             System.out.print("Escolha: ");
             String opcao = scanner.nextLine();
 
-
-
             switch (opcao) {
                 case"0" -> {
-                    MenuJogador menuJogador = new MenuJogador(loginController, tabuleiroController);
+                    MenuJogador menuJogador = new MenuJogador();
                     menuJogador.intro();
                 }
                 case "1" -> {
@@ -106,6 +111,7 @@ public class MenuRegistro {
                             int altura = scanner.nextInt();
                             if(altura < 0) {
                                 System.out.println("Opção inválida!");
+                                continue;
                             }
                             tabuleiroController.criarTabuleiro(nome, largura, altura, logado.getNome());
                             System.out.println("Tabuleiro criado.");

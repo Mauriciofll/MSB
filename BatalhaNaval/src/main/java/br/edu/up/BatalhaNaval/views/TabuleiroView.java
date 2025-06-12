@@ -3,6 +3,10 @@ package br.edu.up.BatalhaNaval.views;
 import br.edu.up.BatalhaNaval.models.Tabuleiro;
 
 public class TabuleiroView {
+    /**
+     * Mostra a matriz do tabuleiro de forma organizada ao Jogador.
+     * @param tabuleiro
+     */
     public void exibirTabuleiro(Tabuleiro tabuleiro) {
         int tamanho = tabuleiro.getTamanho();
         String[][] matriz = tabuleiro.getMatrizCompleta();
@@ -22,6 +26,10 @@ public class TabuleiroView {
         System.out.println();
     }
 
+    /**
+     * Mostra a matriz escondida ao Jogador, isto é, uma matriz com valores "X" que gradualmente é revelada conforme é atacada.
+     * @param tabuleiro
+     */
     public void exibirTabuleiroEscondido (Tabuleiro tabuleiro) {
         int tamanho = tabuleiro.getTamanho();
         String[][] matriz = tabuleiro.getMatrizEscondida();

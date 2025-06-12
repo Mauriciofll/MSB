@@ -12,6 +12,9 @@ import java.util.Scanner;
 public class Jogador implements ModeloJogador {
     private Integer pontos = 0;
 
+    /**
+     * Jogador usa um construtor vazio que adiciona as embarcações relevantes à frota.
+     */
     public Jogador() {
         frota.add(new PortaAvioes());
         frota.add(new Encouracado());
@@ -20,6 +23,12 @@ public class Jogador implements ModeloJogador {
         frota.add(new Destroyer());
     }
 
+    /**
+     * Método usa parâmetros da classe Tabuleiro para posiconamento de embarcações.
+     * @param tabuleiro - Refere-se ao tabuleiro em si.
+     * @param tabuleiroController - Refere-se a classe que utiliza dos dois outros parâmetros para manusear as operações.
+     * @param tabuleiroView - Refere-se a classe contendo os atributos e métodos relevantes ao que o usuário irá ver no console.
+     */
     @Override
     public void posicionar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
         for(int i  = 0; i < 5; i++) {
@@ -31,6 +40,13 @@ public class Jogador implements ModeloJogador {
         }
     }
 
+    /**
+     * Método usas parâmetros da classe Tabuleiro para atacar.
+     * @param tabuleiro - Usa a matrizEscondida do tabuleiro para ser atacada.
+     * @param tabuleiroController - Gerencia os métodos e atributos relevantes da classe Tabuleiro.
+     * @param tabuleiroView - Exibe a matrizEscondida ao Jogador e revela espaços já atacados.
+     * @return
+     */
     @Override
     public int atacar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
         int sair = 0;

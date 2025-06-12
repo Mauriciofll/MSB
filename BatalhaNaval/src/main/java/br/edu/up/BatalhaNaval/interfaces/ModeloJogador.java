@@ -9,6 +9,12 @@ import br.edu.up.BatalhaNaval.views.TabuleiroView;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ModeloJogador é implementado como interface pois pode ser utilizado para formação de diferentes classes de
+jogador, como um jogador normal controlado por um usuário ou um jogador IA controlado pelo programa.
+
+*/
+
 public interface ModeloJogador {
     List<Embarcacao> frota = new ArrayList<>();
 

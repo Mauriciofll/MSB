@@ -7,7 +7,6 @@ public class Tabuleiro implements Serializable {
     private int altura;
     private String dono;
 
-
     public Tabuleiro(String nome, int largura, int altura, String dono) {
         this.nome = nome;
         this.largura = largura;
@@ -19,6 +18,7 @@ public class Tabuleiro implements Serializable {
         preencheTabuleiro();
     }
 
+    //Construtor vazio declarado para instâncias onde não se sabe os atributos na declaração do objeto.
     public Tabuleiro() {
 
     }
@@ -28,17 +28,12 @@ public class Tabuleiro implements Serializable {
     public int getPontuacao() { return pontuacao; }
     public void setPontuacao(int pontuacao) { this.pontuacao = pontuacao; }
 
-    //=================================================================================================================
-    // Atributos
-    //=================================================================================================================
     private String nome;
     private int tamanho;
     private String[][] matriz;
     private String[][] matrizEscondida;
 
-    //=================================================================================================================
-    // Construtor
-    //=================================================================================================================
+    //Construtor para declarações de objeto com somente atributos nome e tamanho geral.
     public Tabuleiro(String nome, int tamanho) {
         this.nome = nome;
         this.tamanho = tamanho;
@@ -47,9 +42,6 @@ public class Tabuleiro implements Serializable {
         preencheTabuleiro(); // já inicia o tabuleiro preenchido
     }
 
-    //=================================================================================================================
-    // Getters e Setters
-    //=================================================================================================================
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
@@ -60,6 +52,7 @@ public class Tabuleiro implements Serializable {
 
     public void setMatriz(int x, int y, String valor) { matriz[x][y] = valor; }
 
+    //Método serve para revelar o que há na Matriz real, substituindo gradualmente os valores da matriz escondida.
     public void setMatrizEscondida(int x, int y) {
         matrizEscondida[x][y] = matriz[x][y];
     }
@@ -72,15 +65,13 @@ public class Tabuleiro implements Serializable {
         return x >= 0 && y >= 0 && x < tamanho && y < tamanho;
     }
 
-    //=================================================================================================================
-    // Métodos
-    //=================================================================================================================
     public void preencheTabuleiro() {
         for (int y = 0; y < this.tamanho; y++) {
             for (int x = 0; x < this.tamanho; x++) {
                 matriz[x][y] = "~";
             }
         }
+        //Matriz escondida é preenchida de "X" para mostrar espaços ainda não atingidos.
         for (int y = 0; y < this.tamanho; y++) {
             for (int x = 0; x < this.tamanho; x++) {
                 matrizEscondida[x][y] = "X";

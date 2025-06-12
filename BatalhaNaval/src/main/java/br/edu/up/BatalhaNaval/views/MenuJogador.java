@@ -10,14 +10,9 @@ import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
 import java.util.Scanner;
 
 public class MenuJogador {
-    private LoginController loginController = new LoginController(new UsuarioRepository());
-    private TabuleiroController tabuleiroController = new TabuleiroController(new Tabuleiro(), new TabuleiroView());
-
-    public MenuJogador(LoginController loginController, TabuleiroController tabuleiroController) {
-        this.loginController = loginController;
-        this.tabuleiroController = tabuleiroController;
-    }
-
+    /**
+     * Menu inicial ao Jogador.
+     */
     public void intro() {
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
@@ -38,6 +33,10 @@ public class MenuJogador {
         } while (opcao != 1 && opcao != 2);
     }
 
+    /**
+     * Modo multijogador local.
+     * @throws InterruptedException - É utilizado para o comando thread.sleep.
+     */
     public void multijogador() throws InterruptedException {
         int sair = 0;
         Tabuleiro tabuleiro1 = new Tabuleiro("Padrão1", 10);
@@ -50,7 +49,9 @@ public class MenuJogador {
         Jogador jogador2 = new Jogador();
         System.out.println("\nJogador 1: Posicione suas embarcações.");
         jogador1.posicionar(tabuleiro1, tabuleiroController1, tabuleiroView1);
+        //Thread.sleep(500) é usado para que haja um momento onde o jogador possa ver o que ocoreu antes de acabar seu turno.
         Thread.sleep(500);
+        //Sequências de \n são utilizadas na ausência de console.clear().
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("\nJogador 2: Posicione suas embarcações.");
         jogador2.posicionar(tabuleiro2, tabuleiroController2, tabuleiroView2);
