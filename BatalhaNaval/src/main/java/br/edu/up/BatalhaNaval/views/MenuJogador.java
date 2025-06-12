@@ -60,15 +60,11 @@ public class MenuJogador {
         do {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             System.out.println("Jogador 1: Ataque uma posição.");
-            if(jogador1.atacar(tabuleiro2, tabuleiroController2, tabuleiroView2) == 1) {
-                sair = 1;
-            }
+            jogador1.atacar(tabuleiro1, tabuleiroController1, tabuleiroView1);
             Thread.sleep(500);
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("Jogador 2: Posicione suas embarcações.");
-            if(jogador2.atacar(tabuleiro1, tabuleiroController1, tabuleiroView1) == 1) {
-                sair = 1;
-            }
+            System.out.println("Jogador 2: Ataque uma posição.");
+            jogador2.atacar(tabuleiro2, tabuleiroController2, tabuleiroView2);
             Thread.sleep(500);
         } while(jogador1.getPontos() < 19 && jogador2.getPontos() < 19 && sair != 1);
         if(jogador1.getPontos() < 19) {
