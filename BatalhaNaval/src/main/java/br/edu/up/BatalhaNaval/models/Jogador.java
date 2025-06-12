@@ -32,39 +32,49 @@ public class Jogador implements ModeloJogador {
     }
 
     @Override
-    public void atacar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
+    public int atacar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
+        int sair = 0;
         do {
             try {
                 tabuleiroController.exibirTabuleiroEscondido();
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Por favor insira a posição X do ataque: ");
                 int posicaoX = scanner.nextInt();
-                if(posicaoX > tabuleiro.getTamanho() || posicaoX < 0) {
+                if(posicaoX > tabuleiro.getTamanho() || posicaoX < -1) {
                     System.out.println("Opção inválida!");
                 }
                 System.out.println("Por favor insira a posição Y do ataque: ");
                 int posicaoY = scanner.nextInt();
-                if(posicaoY > tabuleiro.getTamanho() || posicaoY < 0) {
+                if(posicaoY > tabuleiro.getTamanho() || posicaoY < -1) {
                     System.out.println("Posição inválida!");
                 }
-                if(tabuleiro.getMatrizEscondidaValor(posicaoX, posicaoY) == "X") {
-                    if (tabuleiro.getMatriz(posicaoX, posicaoY) != "~") {
-                        System.out.println("\nAlvo atingido!");
-                        tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
-                        pontos += 1;
-                        break;
+                if (posicaoX != -1 && posicaoY != -1) {
+                    if(tabuleiro.getMatrizEscondidaValor(posicaoX, posicaoY) == "X") {
+                        if (tabuleiro.getMatriz(posicaoX, posicaoY) != "~") {
+                            System.out.println("\nAlvo atingido!");
+                            tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                            pontos += 1;
+                            break;
+                        } else {
+                            System.out.println("\nNenhum alvo atingido!");
+                            tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                            break;
+                        }
                     } else {
-                        System.out.println("\nNenhum alvo atingido!");
-                        tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                        System.out.println("Posição já atingida!");
                         break;
                     }
                 } else {
-                    System.out.println("Posição já atingida!");
+                    sair = 1;
                 }
             } catch (Exception e) {
                 System.out.println("Opção inválida!");
             }
-        } while(true);
+        } while(sair != 1);
+        if (sair == 1) {
+            return 1;
+        }
+        return 0;
     }
 
     public Integer getPontos() {

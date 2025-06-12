@@ -38,9 +38,8 @@ public class MenuJogador {
         } while (opcao != 1 && opcao != 2);
     }
 
-    public void multijogador(LoginController loginController, TabuleiroController tabuleiroController) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-
+    public void multijogador() throws InterruptedException {
+        int sair = 0;
         Tabuleiro tabuleiro1 = new Tabuleiro("Padrão1", 10);
         TabuleiroView tabuleiroView1 = new TabuleiroView();
         TabuleiroController tabuleiroController1 = new TabuleiroController(tabuleiro1, tabuleiroView1);
@@ -58,21 +57,29 @@ public class MenuJogador {
         Thread.sleep(500);
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         do {
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             System.out.println("Jogador 1: Ataque uma posição.");
-            jogador1.atacar(tabuleiro2, tabuleiroController2, tabuleiroView2);
+            if(jogador1.atacar(tabuleiro2, tabuleiroController2, tabuleiroView2) == 1) {
+                sair = 1;
+            }
             Thread.sleep(500);
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             System.out.println("Jogador 2: Posicione suas embarcações.");
-            jogador2.atacar(tabuleiro1, tabuleiroController1, tabuleiroView1);
+            if(jogador2.atacar(tabuleiro1, tabuleiroController1, tabuleiroView1) == 1) {
+                sair = 1;
+            }
             Thread.sleep(500);
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        } while(jogador1.getPontos() < 19 && jogador2.getPontos() < 19);
+        } while(jogador1.getPontos() < 19 && jogador2.getPontos() < 19 && sair != 1);
         if(jogador1.getPontos() < 19) {
             System.out.println("Jogador 1 é o vencedor!");
         } else if (jogador2.getPontos() < 19) {
             System.out.println("Jogador 2 é o vencedor!");
+        } else if (sair == 1) {
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            intro();
+        } else{
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            intro();
         }
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        intro();
     }
 }
