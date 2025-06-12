@@ -2,10 +2,11 @@ package br.edu.up.BatalhaNaval.models;
 
 import java.io.Serializable;
 
-public class Tabuleiro {
+public class Tabuleiro implements Serializable {
     private int largura;
     private int altura;
     private String dono;
+
 
     public Tabuleiro(String nome, int largura, int altura, String dono) {
         this.nome = nome;

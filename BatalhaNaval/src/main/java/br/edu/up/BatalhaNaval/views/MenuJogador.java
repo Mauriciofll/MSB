@@ -26,7 +26,7 @@ public class MenuJogador {
                 System.out.println("O que gostaria de jogar?\n1 - Multijogador \n2 - Sair");
                 opcao = scanner.nextInt();
                 if(opcao == 1) {
-                    multijogador(loginController, tabuleiroController);
+                    multijogador();
                 } else if (opcao == 2) {
                     System.exit(0);
                 } else {

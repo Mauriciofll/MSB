@@ -16,6 +16,12 @@ public class LoginController {
         this.usuarioRepository = usuarioRepository;
     }
 
+    /**
+     * Método que loga o usuário no sistema baseado nos usuários cadastrados.
+     * @param nome - Nome do usuário
+     * @param senha - Senha do usuário
+     * @return - Diz se o login foi bem-sucedido ou não
+     */
     public boolean logar(String nome, String senha) {
         logger.info("Iniciando processo de login");
         List<Usuario> usuarios = UsuarioRepository.carregarUsuarios();
@@ -33,6 +39,14 @@ public class LoginController {
 
     }
 
+
+    /**
+     * Cadastra um novo usuário ao sistema
+     * @param nome - Refere-se ao nome do usuário que deve ser cadastrado.
+     * @param senha - Refere-se a senha do usuário que deve ser cadastrado.
+     * @param admin - Refere-se a se o usuário é um administrador ou não.
+     * @return - Diz se o cadastro foi bem sucedido ou não.
+     */
     public boolean cadastrar(String nome, String senha, boolean admin) {
         logger.info("Iniciando cadastro de usuario");
         List<Usuario> usuarios = UsuarioRepository.carregarUsuarios();

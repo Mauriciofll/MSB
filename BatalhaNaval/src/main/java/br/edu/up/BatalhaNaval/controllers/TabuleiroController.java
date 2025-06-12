@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.Serializable;
 import java.util.List;
 
-public class TabuleiroController {
+public class TabuleiroController implements Serializable{
     private Tabuleiro tabuleiro;
     private TabuleiroView view;
 
@@ -20,6 +20,13 @@ public class TabuleiroController {
         this.view = view;
     }
 
+    /**
+     * Método para criar tabuleiros personalizados.
+     * @param nome - Refere-se ao nome do tabuleiro.
+     * @param x - Refere-se a altura do tabuleiro.
+     * @param y - Refere-se a largura do tabuleiro.
+     * @param dono - Refere-se ao usuário dono do tabuleiro.
+     */
     public void criarTabuleiro(String nome, int x, int y, String dono) {
         logger.info("Iniciando metodo de criacao de tabuleiro");
         List<Tabuleiro> lista = TabuleiroRepository.listarTodos();

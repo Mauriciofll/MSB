@@ -92,40 +92,29 @@ public class MenuRegistro {
                     menuJogador.intro();
                 }
                 case "1" -> {
-                    System.out.print("Nome do tabuleiro: ");
-                    String nome = scanner.nextLine();
-                    int largura = 0;
                     do {
                         try {
                             Scanner scanner = new Scanner(System.in);
-                            System.out.print("Largura: ");
-                            largura = scanner.nextInt();
-                            if(largura > 0) {
-                                break;
-                            } else {
+                            System.out.println("Nome do tabuleiro: ");
+                            String nome = scanner.nextLine();
+                            System.out.println("Largura: ");
+                            int largura = scanner.nextInt();
+                            if(largura < 0) {
+                                System.out.println("Opção inválida!");
+                                continue;
+                            }
+                            System.out.println("Altura: ");
+                            int altura = scanner.nextInt();
+                            if(altura < 0) {
                                 System.out.println("Opção inválida!");
                             }
+                            tabuleiroController.criarTabuleiro(nome, largura, altura, logado.getNome());
+                            System.out.println("Tabuleiro criado.");
+                            break;
                         } catch (Exception e) {
                             System.out.println("Opção inválida!");
                         }
-                    } while(true);
-                    int altura = 0;
-                    do {
-                        try {
-                            Scanner scanner = new Scanner(System.in);
-                            System.out.print("Largura: ");
-                            largura = scanner.nextInt();
-                            if(largura > 0) {
-                                break;
-                            } else {
-                                System.out.println("Opção inválida!");
-                            }
-                        } catch (Exception e) {
-                            System.out.println("Opção inválida!");
-                        }
-                    } while(true);
-                    tabuleiroController.criarTabuleiro(nome, largura, altura, logado.getNome());
-                    System.out.println("Tabuleiro criado.");
+                    } while (true);
                 }
                 case "2" -> {
                     List<Tabuleiro> meus = TabuleiroRepository.listarPorUsuario(logado.getNome());
@@ -133,10 +122,7 @@ public class MenuRegistro {
                     else meus.forEach(System.out::println);
                 }
                 case "3" -> {
-                    List<Tabuleiro> todos = TabuleiroRepository.listarTodos();
-                    todos.sort((a, b) -> Integer.compare(b.getPontuacao(), a.getPontuacao()));
-                    System.out.println("RANKING:");
-                    todos.forEach(System.out::println);
+                    System.out.println("Ranking atualmente não está disponível.");
                 }
                 case "4" -> {
                     System.out.print("Novo nome: ");

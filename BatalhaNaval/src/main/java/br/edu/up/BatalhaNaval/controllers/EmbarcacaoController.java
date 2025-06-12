@@ -21,6 +21,11 @@ public class EmbarcacaoController {
         logger.info("Finalizado a execucao do metodo EmbarcacaoController");
     }
 
+    /**
+     * Posiciona as embarcações no tabuleiro, usando os métodos da classe Embarcação e EmbarcaçãoView;
+     * salvos como atributos da classe.
+     * @param tabuleiro - Refere-se ao tabuleiro no qual as embarcações são posiconadas.
+     */
     public void posicionarEmbarcacao(Tabuleiro tabuleiro) {
         logger.info("Iniciando o posicionamento de embarcacoes");
         boolean sucesso = false;
