@@ -5,11 +5,13 @@ import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
 import br.edu.up.BatalhaNaval.interfaces.ModeloJogador;
 import br.edu.up.BatalhaNaval.views.EmbarcacaoView;
 import br.edu.up.BatalhaNaval.views.TabuleiroView;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
 
 public class Jogador implements ModeloJogador {
+    private static final Logger logger = LogManager.getLogger(TabuleiroController.class);
     private Integer pontos = 0;
 
     /**
@@ -31,6 +33,7 @@ public class Jogador implements ModeloJogador {
      */
     @Override
     public void posicionar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
+        logger.info("Iniciando método de posicionamento de embarcações.");
         for(int i  = 0; i < 5; i++) {
             EmbarcacaoView embarcacaoView = new EmbarcacaoView();
             EmbarcacaoController embarcacaoController = new EmbarcacaoController(frota.get(i), embarcacaoView);
@@ -38,6 +41,7 @@ public class Jogador implements ModeloJogador {
             tabuleiroController.exibirTabuleiro();
             embarcacaoController.posicionarEmbarcacao(tabuleiro);
         }
+        logger.info("Finalizado o método de posicionamento de embarcações.");
     }
 
     /**
@@ -49,12 +53,13 @@ public class Jogador implements ModeloJogador {
      */
     @Override
     public void atacar(Tabuleiro tabuleiro, TabuleiroController tabuleiroController, TabuleiroView tabuleiroView) {
+        logger.info("Iniciando método de ataque.");
         int sair = 0;
         do {
             try {
                 tabuleiroController.exibirTabuleiroEscondido();
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Por favor insira a posição X do ataque: ");
+                System.out.println("Por favor insira a posição X do ataque (Ou -1 para encerrar): ");
                 int posicaoX = scanner.nextInt();
                 if(posicaoX > tabuleiro.getTamanho() || posicaoX < -1) {
                     System.out.println("Opção inválida!");
@@ -62,7 +67,7 @@ public class Jogador implements ModeloJogador {
                 } else if (posicaoX == -1) {
                     System.exit(0);
                 }
-                System.out.println("Por favor insira a posição Y do ataque: ");
+                System.out.println("Por favor insira a posição Y do ataque (Ou -1 para encerrar): ");
                 int posicaoY = scanner.nextInt();
                 if(posicaoY > tabuleiro.getTamanho() || posicaoY < -1) {
                     System.out.println("Posição inválida!");
@@ -88,6 +93,7 @@ public class Jogador implements ModeloJogador {
                 System.out.println("Opção inválida!");
             }
         } while(true);
+        logger.info("Finalizando o método de ataque.");
     }
 
     public Integer getPontos() {

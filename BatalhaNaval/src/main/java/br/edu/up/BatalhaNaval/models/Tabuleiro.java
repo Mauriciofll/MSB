@@ -2,7 +2,12 @@ package br.edu.up.BatalhaNaval.models;
 
 import java.io.Serializable;
 
+import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Tabuleiro implements Serializable {
+    private static final Logger logger = LogManager.getLogger(TabuleiroController.class);
     private int largura;
     private int altura;
     private String dono;
