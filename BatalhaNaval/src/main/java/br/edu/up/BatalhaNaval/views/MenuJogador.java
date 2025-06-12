@@ -54,7 +54,7 @@ public class MenuJogador {
             jogador2.atacar(tabuleiro1, tabuleiroController1, tabuleiroView1);
             Thread.sleep(500);
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        } while(jogador1.getPontos() < 19 || jogador2.getPontos() < 19);
+        } while(jogador1.getPontos() < 19 && jogador2.getPontos() < 19);
         if(jogador1.getPontos() < 19) {
             System.out.println("Jogador 1 é o vencedor!");
         } else if (jogador2.getPontos() < 19) {

@@ -84,9 +84,12 @@ public class MenuRegistro {
             System.out.print("Escolha: ");
             String opcao = scanner.nextLine();
 
+
+
             switch (opcao) {
                 case"0" -> {
                     MenuJogador menuJogador = new MenuJogador();
+                    menuJogador.intro();
                 }
                 case "1" -> {
                     System.out.print("Nome do tabuleiro: ");
