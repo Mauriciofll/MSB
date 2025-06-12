@@ -110,7 +110,6 @@ public class Tabuleiro implements Serializable {
     public String toString() {
         return "Tabuleiro: " + nome +
         " | Dimensões: " + largura + "x" + altura +
-        " | Dono: " + dono +
-        " | Pontuação: " + pontuacao;
+        " | Dono: " + dono;
     }
 }
