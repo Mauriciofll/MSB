@@ -105,4 +105,12 @@ public class Tabuleiro implements Serializable {
     public void setDono(String dono) {
         this.dono = dono;
     }
+
+    @Override
+    public String toString() {
+        return "Tabuleiro: " + nome +
+        " | Dimensões: " + largura + "x" + altura +
+        " | Dono: " + dono +
+        " | Pontuação: " + pontuacao;
+    }
 }

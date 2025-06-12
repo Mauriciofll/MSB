@@ -62,6 +62,7 @@ public class Jogador implements ModeloJogador {
                         }
                     } else {
                         System.out.println("Posição já atingida!");
+                        break;
                     }
                 } else {
                     sair = 1;

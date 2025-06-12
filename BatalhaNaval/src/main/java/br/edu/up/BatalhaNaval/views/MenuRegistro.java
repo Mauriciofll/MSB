@@ -1,15 +1,14 @@
 package br.edu.up.BatalhaNaval.views;
 
+import java.util.List;
+import java.util.Scanner;
+
 import br.edu.up.BatalhaNaval.controllers.LoginController;
 import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
 import br.edu.up.BatalhaNaval.models.Tabuleiro;
 import br.edu.up.BatalhaNaval.models.Usuario;
 import br.edu.up.BatalhaNaval.repositories.TabuleiroRepository;
 import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
-
-import java.awt.*;
-import java.util.List;
-import java.util.Scanner;
 
 public class MenuRegistro {
     private static final Scanner scanner = new Scanner(System.in);
@@ -69,7 +68,7 @@ public class MenuRegistro {
             System.out.println("0 - Jogar");
             System.out.println("1 - Criar Tabuleiro");
             System.out.println("2 - Meus Tabuleiros");
-            System.out.println("3 - Ranking");
+            System.out.println("3 - Ranking (WIP)");
             System.out.println("4 - Alterar Nome");
             System.out.println("5 - Alterar Senha");
             System.out.println("6 - Excluir Conta");
@@ -122,7 +121,7 @@ public class MenuRegistro {
                     else meus.forEach(System.out::println);
                 }
                 case "3" -> {
-                    System.out.println("Ranking atualmente não está disponível.");
+                    System.out.println("Esta funcionalidade está em desenvolvimento e será implementada em breve. Agradecemos pela compreensão!");
                 }
                 case "4" -> {
                     System.out.print("Novo nome: ");
