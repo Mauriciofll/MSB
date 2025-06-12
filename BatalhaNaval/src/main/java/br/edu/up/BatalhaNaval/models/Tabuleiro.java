@@ -17,6 +17,10 @@ public class Tabuleiro {
         preencheTabuleiro();
     }
 
+    public Tabuleiro() {
+
+    }
+
     private int pontuacao;
 
     public int getPontuacao() { return pontuacao; }
@@ -87,6 +91,10 @@ public class Tabuleiro {
     }
 
     public String[][] getMatrizEscondida() { return matrizEscondida; }
+
+    public String getMatrizEscondidaValor(int x, int y) {
+        return matrizEscondida[x][y];
+    }
 
     public String getDono() {
         return dono;

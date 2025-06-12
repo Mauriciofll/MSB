@@ -1,4 +1,5 @@
 package br.edu.up.BatalhaNaval.views;
+
 import br.edu.up.BatalhaNaval.controllers.LoginController;
 import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
 import br.edu.up.BatalhaNaval.models.Tabuleiro;
@@ -6,15 +7,17 @@ import br.edu.up.BatalhaNaval.models.Usuario;
 import br.edu.up.BatalhaNaval.repositories.TabuleiroRepository;
 import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Scanner;
 
-public class MainConsoleView {
+public class MenuRegistro {
     private static final Scanner scanner = new Scanner(System.in);
     private static final LoginController loginController = new LoginController(new UsuarioRepository());
     private static final TabuleiroController tabuleiroController = new TabuleiroController(new Tabuleiro(), new TabuleiroView());
 
-    public static void main(String[] args) {
+    public static void introRegistro() {
+
         loginController.cadastrar("Admin", "0000", true);
 
         while (true) {
@@ -35,7 +38,7 @@ public class MainConsoleView {
                         menuUsuario();
                     } else {
                         System.out.println("Login inválido.");
-                        pausar();
+                        introRegistro();
                     }
                 }
                 case "2" -> {
@@ -48,12 +51,12 @@ public class MainConsoleView {
                     } else {
                         System.out.println("Nome já está em uso.");
                     }
-                    pausar();
+                    introRegistro();
                 }
                 case "0" -> System.exit(0);
                 default -> {
                     System.out.println("Opção inválida.");
-                    pausar();
+                    introRegistro();
                 }
             }
         }
@@ -63,6 +66,7 @@ public class MainConsoleView {
         Usuario logado = loginController.getUsuarioLogado();
         while (logado != null) {
             System.out.println("Bem-vindo, " + logado.getNome());
+            System.out.println("0 - Jogar");
             System.out.println("1 - Criar Tabuleiro");
             System.out.println("2 - Meus Tabuleiros");
             System.out.println("3 - Ranking");
@@ -81,6 +85,9 @@ public class MainConsoleView {
             String opcao = scanner.nextLine();
 
             switch (opcao) {
+                case"0" -> {
+                    MenuJogador menuJogador = new MenuJogador();
+                }
                 case "1" -> {
                     System.out.print("Nome do tabuleiro: ");
                     String nome = scanner.nextLine();
@@ -137,7 +144,7 @@ public class MainConsoleView {
                 }
                 case "7" -> {
                     loginController.deslogar();
-                    return;
+                    introRegistro();
                 }
                 case "8" -> {
                     if (logado.isAdmin()) {
@@ -183,12 +190,9 @@ public class MainConsoleView {
                 default -> System.out.println("Opção inválida.");
             }
 
-            pausar();
+            menuUsuario();
         }
     }
-
-    private static void pausar() {
-        System.out.println("Pressione ENTER para continuar...");
-        scanner.nextLine();
-    }
 }
+
+

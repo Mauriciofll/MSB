@@ -47,15 +47,19 @@ public class Jogador implements ModeloJogador {
                 if(posicaoY > tabuleiro.getTamanho() || posicaoY < 0) {
                     System.out.println("Posição inválida!");
                 }
-                if(tabuleiro.getMatriz(posicaoX, posicaoY) != "~") {
-                    System.out.println("\nAlvo atingido!");
-                    tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
-                    pontos += 1;
-                    break;
+                if(tabuleiro.getMatrizEscondidaValor(posicaoX, posicaoY) == "X") {
+                    if (tabuleiro.getMatriz(posicaoX, posicaoY) != "~") {
+                        System.out.println("\nAlvo atingido!");
+                        tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                        pontos += 1;
+                        break;
+                    } else {
+                        System.out.println("\nNenhum alvo atingido!");
+                        tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
+                        break;
+                    }
                 } else {
-                    System.out.println("\nNenhum alvo atingido!");
-                    tabuleiro.setMatrizEscondida(posicaoX, posicaoY);
-                    break;
+                    System.out.println("Posição já atingida!");
                 }
             } catch (Exception e) {
                 System.out.println("Opção inválida!");
