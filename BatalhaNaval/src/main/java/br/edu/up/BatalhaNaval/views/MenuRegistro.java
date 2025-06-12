@@ -88,16 +88,42 @@ public class MenuRegistro {
 
             switch (opcao) {
                 case"0" -> {
-                    MenuJogador menuJogador = new MenuJogador();
+                    MenuJogador menuJogador = new MenuJogador(loginController, tabuleiroController);
                     menuJogador.intro();
                 }
                 case "1" -> {
                     System.out.print("Nome do tabuleiro: ");
                     String nome = scanner.nextLine();
-                    System.out.print("Largura: ");
-                    int largura = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Altura: ");
-                    int altura = Integer.parseInt(scanner.nextLine());
+                    int largura = 0;
+                    do {
+                        try {
+                            Scanner scanner = new Scanner(System.in);
+                            System.out.print("Largura: ");
+                            largura = scanner.nextInt();
+                            if(largura > 0) {
+                                break;
+                            } else {
+                                System.out.println("Opção inválida!");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Opção inválida!");
+                        }
+                    } while(true);
+                    int altura = 0;
+                    do {
+                        try {
+                            Scanner scanner = new Scanner(System.in);
+                            System.out.print("Largura: ");
+                            largura = scanner.nextInt();
+                            if(largura > 0) {
+                                break;
+                            } else {
+                                System.out.println("Opção inválida!");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Opção inválida!");
+                        }
+                    } while(true);
                     tabuleiroController.criarTabuleiro(nome, largura, altura, logado.getNome());
                     System.out.println("Tabuleiro criado.");
                 }

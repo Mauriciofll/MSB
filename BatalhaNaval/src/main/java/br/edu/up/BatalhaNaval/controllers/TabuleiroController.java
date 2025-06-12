@@ -6,6 +6,7 @@ import br.edu.up.BatalhaNaval.views.TabuleiroView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class TabuleiroController {

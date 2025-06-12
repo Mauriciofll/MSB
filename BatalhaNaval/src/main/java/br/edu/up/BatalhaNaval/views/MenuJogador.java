@@ -1,13 +1,23 @@
 package br.edu.up.BatalhaNaval.views;
 
 
+import br.edu.up.BatalhaNaval.controllers.LoginController;
 import br.edu.up.BatalhaNaval.controllers.TabuleiroController;
 import br.edu.up.BatalhaNaval.models.Jogador;
 import br.edu.up.BatalhaNaval.models.Tabuleiro;
+import br.edu.up.BatalhaNaval.repositories.UsuarioRepository;
 
 import java.util.Scanner;
 
 public class MenuJogador {
+    private LoginController loginController = new LoginController(new UsuarioRepository());
+    private TabuleiroController tabuleiroController = new TabuleiroController(new Tabuleiro(), new TabuleiroView());
+
+    public MenuJogador(LoginController loginController, TabuleiroController tabuleiroController) {
+        this.loginController = loginController;
+        this.tabuleiroController = tabuleiroController;
+    }
+
     public void intro() {
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
@@ -16,7 +26,7 @@ public class MenuJogador {
                 System.out.println("O que gostaria de jogar?\n1 - Multijogador \n2 - Sair");
                 opcao = scanner.nextInt();
                 if(opcao == 1) {
-                    multijogador();
+                    multijogador(loginController, tabuleiroController);
                 } else if (opcao == 2) {
                     System.exit(0);
                 } else {
@@ -28,7 +38,9 @@ public class MenuJogador {
         } while (opcao != 1 && opcao != 2);
     }
 
-    public void multijogador() throws InterruptedException {
+    public void multijogador(LoginController loginController, TabuleiroController tabuleiroController) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+
         Tabuleiro tabuleiro1 = new Tabuleiro("Padrão1", 10);
         TabuleiroView tabuleiroView1 = new TabuleiroView();
         TabuleiroController tabuleiroController1 = new TabuleiroController(tabuleiro1, tabuleiroView1);

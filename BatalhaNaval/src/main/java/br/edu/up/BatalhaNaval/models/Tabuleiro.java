@@ -1,7 +1,8 @@
 package br.edu.up.BatalhaNaval.models;
 
-public class Tabuleiro {
+import java.io.Serializable;
 
+public class Tabuleiro {
     private int largura;
     private int altura;
     private String dono;
